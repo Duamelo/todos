@@ -1,0 +1,234 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "todos api",
+		"version": "1.0",
+		"description": "Api endpoints"
+	},
+	"host": "localhost",
+	"basePath": "/",
+	"schemes": [
+		"http"
+	],
+	"tags": [
+		{
+			"name": "Todos api",
+			"description": "This is the endpoints for todo apis"
+		}
+	],
+	"paths": {
+		"/todos": {
+			"get": {
+				"tags": [
+					"Todos"
+				],
+				"summary": "retrieve a list of all todos",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "internal server error"
+					},
+                    "400": {
+						"description": "resource not found"
+					},
+                    "404": {
+						"description": "bad request"
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"Todos"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "create a new todo",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "todo id",
+						"required": true
+					},
+                    {
+						"name": "title",
+						"type": "string",
+						"in": "body",
+						"description": "todo title",
+						"required": true
+					},
+                    {
+						"name": "description",
+						"type": "string",
+						"in": "body",
+						"description": "todo description",
+						"required": true
+					},
+                    {
+						"name": "completed",
+						"type": "string",
+						"in": "body",
+						"description": "todo completed",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "internal server error"
+					},
+                    "400": {
+						"description": "resource not found"
+					},
+                    "404": {
+						"description": "bad request"
+					}
+				}
+			}
+		},
+		"/todos/{id}": {
+			"get": {
+				"tags": [
+					"Todo"
+				],
+				"summary": "retrieve a specific todo by its id",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "todo id",
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "internal server error"
+					},
+                    "400": {
+						"description": "resource not found"
+					},
+                    "404": {
+						"description": "bad request"
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"Todo"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "delete a todo by its id",
+				"operationId": "11",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "todo id",
+						"required": true
+					}
+				],
+                "responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "internal server error"
+					},
+                    "400": {
+						"description": "resource not found"
+					},
+                    "404": {
+						"description": "bad request"
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"Todo"
+				],
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"summary": "update a specific todo by its id",
+				"parameters": [
+					{
+						"name": "id",
+						"type": "integer",
+						"in": "path",
+						"description": "todo id",
+						"required": true
+					},
+                    {
+						"name": "title",
+						"type": "string",
+						"in": "body",
+						"description": "todo title",
+						"required": true
+					},
+                    {
+						"name": "description",
+						"type": "string",
+						"in": "body",
+						"description": "todo description",
+						"required": true
+					},
+                    {
+						"name": "completed",
+						"type": "string",
+						"in": "body",
+						"description": "todo completed",
+						"required": true
+					}
+				],
+                "responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "internal server error"
+					},
+                    "400": {
+						"description": "resource not found"
+					},
+                    "404": {
+						"description": "bad request"
+					}
+				}
+			}
+		}
+	}
+}
